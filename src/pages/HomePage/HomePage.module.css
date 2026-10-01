@@ -1,0 +1,227 @@
+.page-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @media only screen and (max-width: 770px) {
+    font-size: 0.9rem;
+  }
+
+  @media only screen and (max-width: 650px) {
+    font-size: 0.8rem;
+  }
+
+  @media only screen and (max-width: 550px) {
+    font-size: 0.65rem;
+  }
+
+  @media only screen and (max-width: 470px) {
+    font-size: 0.55rem;
+  }
+
+  @media only screen and (max-width: 390px) {
+    font-size: 0.5rem;
+  }
+
+  @media only screen and (min-width: 1920px) {
+    font-size: 1.4rem;
+  }
+
+  @media only screen and (min-width: 2560px) {
+    font-size: 1.6rem;
+  }
+}
+
+.home-page {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  padding-inline: 1em;
+  min-height: 100vh;
+}
+
+.welcome {
+  text-align: center;
+
+  & h1 {
+    font-size: 4em;
+    margin-top: 1.5em;
+    margin-bottom: 0.3em;
+    font-weight: 800;
+
+    & span {
+      color: var(--color-primary);
+    }
+  }
+
+  & p {
+    color: #475569;
+    font-size: 1.15em;
+  }
+}
+
+.cta-buttons {
+  margin-top: 3.5em;
+  margin-bottom: 1em;
+}
+
+.cta-button {
+  display: inline-block;
+  bottom: 0;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: 0.9em 1.2em;
+  box-shadow: 0 8px 32px rgba(13, 110, 56, 0.2);
+  border-radius: 0.7em;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+  margin-inline: 0.7em;
+}
+
+.play-now-btn {
+  background: linear-gradient(135deg, #0d6e38 0%, #15803d 100%);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    background: linear-gradient(135deg, #01411c 0%, #0d6e38 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(16, 185, 129, 0.45);
+  }
+}
+
+.how-to-play-btn {
+  background-color: #ffffff;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    background-color: #ecfdf5;
+    border-color: var(--color-primary-hover);
+    color: var(--color-primary-hover);
+    transform: translateY(-2px);
+  }
+}
+
+.platforms-section {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 2.5em;
+  margin-bottom: 2em;
+  padding: 0 1.5em;
+  text-align: center;
+
+  & h2 {
+    font-size: 1.8em;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 1.2em;
+  }
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em;
+
+  @media only screen and (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.features {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 1.5em;
+  margin-bottom: 3em;
+  padding: 0 1.5em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em;
+
+  @media only screen and (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.block {
+  text-align: left;
+  padding: 1.2em 1.4em;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+  display: block;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13, 110, 56, 0.12);
+    border-color: #0d6e38;
+  }
+
+  & h3 {
+    color: #0d6e38;
+    margin-top: 0;
+    margin-bottom: 0.4em;
+    font-size: 1.25em;
+    font-weight: 700;
+  }
+
+  & p {
+    color: #475569;
+    line-height: 1.5;
+    margin: 0;
+    font-size: 0.95em;
+  }
+}
+
+.app-footer {
+  position: relative;
+  margin-top: 3em;
+  background: linear-gradient(135deg, #01411c 0%, #0d6e38 50%, #15803d 100%);
+  flex-shrink: 0;
+  min-height: 3.5em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  padding: 1em 1.5em;
+  z-index: 10;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  padding: 0.3em 0.8em;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.footer-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}

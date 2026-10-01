@@ -1,0 +1,42 @@
+.soundToggleBtn {
+  position: fixed;
+  top: 14px;
+  right: 60px;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0d6e38;
+  border: 1.5px solid rgba(13, 110, 56, 0.35);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.soundToggleBtn:hover {
+  background: #ffffff;
+  color: #01411c;
+  border-color: #0d6e38;
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(13, 110, 56, 0.25);
+}
+
+.soundToggleBtn:active {
+  transform: scale(0.95);
+}
+
+.soundToggleBtn.muted {
+  color: #94a3b8;
+  border-color: #cbd5e1;
+  background: rgba(241, 245, 249, 0.95);
+}
+
+.soundToggleBtn.muted:hover {
+  color: #64748b;
+  border-color: #94a3b8;
+}

@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  max-width: 100vw;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-family: 'Inter Variable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --color-primary: #0d6e38; /* Pakistani Emerald Green */
+  --color-primary-hover: #01411c; /* Deep Forest Green */
+  --color-accent-gold: #f59e0b; /* Festive Gold Accent */
+}
