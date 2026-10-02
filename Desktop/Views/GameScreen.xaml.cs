@@ -16,7 +16,6 @@ namespace PakLudo.Views
     public partial class GameScreen : UserControl
     {
         public event Action? HomeRequested;
-        public event Action? RestartRequested;
 
         private GameEngine _engine = new();
         private readonly Dictionary<TokenModel, AnimatedTokenControl> _tokenControls = new();
