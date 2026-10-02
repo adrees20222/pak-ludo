@@ -1,0 +1,17 @@
+<Application x:Class="PakLudo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Global default typography & theme brushes -->
+        <FontFamily x:Key="AppFont">Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif</FontFamily>
+
+        <Style TargetType="Control">
+            <Setter Property="FontFamily" Value="{StaticResource AppFont}" />
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="{StaticResource AppFont}" />
+        </Style>
+    </Application.Resources>
+</Application>

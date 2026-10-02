@@ -42,6 +42,12 @@
 
 ```text
 pak-ludo/
+├── Desktop/                    # 💻 Native Windows App (C# .NET 8.0 WPF + Inno Setup)
+│   ├── Controls/               # Vector Board, Animated Tokens, Dice
+│   ├── Game/                   # Game Engine, Bot AI, PCM Sound Synthesis
+│   ├── Views/                  # Home, Setup, Game, Rules Screens
+│   ├── installer/setup.iss     # Inno Setup 6 Installer Script
+│   └── PakLudo.csproj
 ├── app/                        # 📱 Native Android App (Flutter + Kotlin SoundPool)
 │   ├── android/
 │   ├── lib/
@@ -65,7 +71,17 @@ pak-ludo/
 
 ## 🛠️ Build & Run Instructions
 
-### 1. Web Version & Blogger Theme
+### 1. Windows Desktop App & Installer (C# .NET 8.0 WPF)
+```powershell
+# Run desktop game in development mode
+dotnet run --project Desktop\PakLudo.csproj
+
+# Build Inno Setup Windows Installer (.exe)
+powershell -ExecutionPolicy Bypass -File Desktop\build-installer.ps1
+```
+Installer Output: `Desktop\installer\output\PakLudo-Setup-v1.0.1.exe`
+
+### 2. Web Version & Blogger Theme
 ```bash
 # Install dependencies
 pnpm install
@@ -73,28 +89,22 @@ pnpm install
 # Build Blogger theme & standalone HTML
 pnpm run build:blogger
 ```
-Output files will be generated in `web/`:
-- `web/pak-ludo-blogger-theme.xml` (Upload to Blogger > Theme > Restore)
-- `web/index.html` (Standalone single-file game)
+Output files in `web/`:
+- `web/pak-ludo-blogger-theme.xml`
+- `web/index.html`
 
-### 2. Chrome Extension
+### 3. Chrome Extension
 ```bash
 pnpm run build:extension
 ```
 Output package: `build/pak-ludo-chrome-extension.zip`
 
-### 3. Android App (Flutter)
+### 4. Android App (Flutter)
 ```bash
 cd app
 
-# Run on connected phone / emulator
-flutter run
-
 # Build release APK
 flutter build apk --release
-
-# Build Google Play App Bundle (.aab)
-flutter build appbundle --release
 ```
 
 ---

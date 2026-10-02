@@ -50,3 +50,15 @@ web/dist/
 web/Original theme-*.xml
 *.zip
 
+# .NET & Desktop Build
+Desktop/bin/
+Desktop/obj/
+Desktop/publish/
+Desktop/installer/output/
+.vs/
+**/.vs/
+*.user
+*.userprefs
+
+
+

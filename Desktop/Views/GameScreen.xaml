@@ -1,0 +1,127 @@
+<UserControl x:Class="PakLudo.Views.GameScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="clr-namespace:PakLudo.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="850" d:DesignWidth="1100">
+    <Grid Background="#F8FAFC">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Top Header Bar -->
+        <Border Grid.Row="0" Background="White" BorderBrush="#E2E8F0" BorderThickness="0,0,0,1" Padding="20,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Left: Home & Brand -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Click="OnHomeClicked" Content="🏠 Home" FontSize="14" FontWeight="SemiBold"
+                            Background="#F1F5F9" Foreground="#334155" Padding="14,8" Margin="0,0,14,0"
+                            BorderThickness="0" Cursor="Hand">
+                        <Button.Resources>
+                            <Style TargetType="Border"><Setter Property="CornerRadius" Value="8" /></Style>
+                        </Button.Resources>
+                    </Button>
+                    <TextBlock Text="🎲 Pak Ludo" FontSize="18" FontWeight="ExtraBold" Foreground="#01411C"
+                               VerticalAlignment="Center" />
+                </StackPanel>
+
+                <!-- Center: Active Turn Banner -->
+                <Border x:Name="TurnBanner" Grid.Column="1" HorizontalAlignment="Center"
+                        Background="#ECFDF5" BorderBrush="#01411C" BorderThickness="1.5"
+                        CornerRadius="10" Padding="16,6">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Ellipse x:Name="TurnColorBadge" Width="14" Height="14" Fill="#01411C" Margin="0,0,8,0" />
+                        <TextBlock x:Name="TurnPlayerName" Text="Player Turn" FontWeight="Bold" FontSize="15"
+                                   Foreground="#01411C" Margin="0,0,8,0" />
+                        <TextBlock x:Name="TurnStatusMessage" Text="• Roll Dice" FontSize="14" Foreground="#0D6E38" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Right: Controls (Mute, Restart) -->
+                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button x:Name="SoundToggleButton" Click="OnSoundToggleClicked"
+                            Content="🔊 Sound: ON" FontSize="13" FontWeight="SemiBold"
+                            Background="#F1F5F9" Foreground="#334155" Padding="12,8" Margin="0,0,8,0"
+                            BorderThickness="0" Cursor="Hand">
+                        <Button.Resources>
+                            <Style TargetType="Border"><Setter Property="CornerRadius" Value="8" /></Style>
+                        </Button.Resources>
+                    </Button>
+
+                    <Button Click="OnRestartClicked" Content="🔄 Restart" FontSize="13" FontWeight="SemiBold"
+                            Background="#FEE2E2" Foreground="#DC2626" Padding="12,8"
+                            BorderThickness="0" Cursor="Hand">
+                        <Button.Resources>
+                            <Style TargetType="Border"><Setter Property="CornerRadius" Value="8" /></Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Main Game Area -->
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="300" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Board View Container -->
+            <Border Grid.Column="0" Background="White" CornerRadius="16" BorderBrush="#CBD5E1" BorderThickness="1"
+                    Padding="16" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="16" ShadowDepth="4" Opacity="0.12" Color="#000000" />
+                </Border.Effect>
+
+                <Grid x:Name="BoardContainer" Width="600" Height="600" SizeChanged="OnBoardSizeChanged">
+                    <!-- Vector Ludo Board -->
+                    <controls:LudoBoardControl x:Name="BoardControl" Width="600" Height="600" />
+                    <!-- Token Overlay Layer -->
+                    <Canvas x:Name="TokenCanvas" Width="600" Height="600" />
+                </Grid>
+            </Border>
+
+            <!-- Right Sidebar: Dice & Player Cards -->
+            <StackPanel Grid.Column="1" Margin="20,0,0,0" VerticalAlignment="Center">
+                
+                <!-- Dice Roller Card -->
+                <Border Background="White" CornerRadius="16" Padding="20" Margin="0,0,0,16"
+                        BorderBrush="#E2E8F0" BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.08" Color="#000000" />
+                    </Border.Effect>
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="DICE ROLL" FontSize="13" FontWeight="Bold" Foreground="#64748B"
+                                   HorizontalAlignment="Center" Margin="0,0,0,12" />
+                        <controls:DiceControl x:Name="GameDice" Margin="0,0,0,12" />
+                        <TextBlock x:Name="DiceInstructionText" Text="Click dice to roll"
+                                   FontSize="14" FontWeight="SemiBold" Foreground="#01411C"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Players Progress Overview List -->
+                <Border Background="White" CornerRadius="16" Padding="16"
+                        BorderBrush="#E2E8F0" BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="PLAYERS" FontSize="13" FontWeight="Bold" Foreground="#64748B" Margin="0,0,0,10" />
+                        <StackPanel x:Name="PlayersListContainer" />
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </Grid>
+
+        <!-- Victory Modal Dialog Overlay -->
+        <controls:VictoryDialog x:Name="VictoryOverlay" Grid.Row="0" Grid.RowSpan="2" Visibility="Collapsed" />
+    </Grid>
+</UserControl>

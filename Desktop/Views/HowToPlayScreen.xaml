@@ -1,0 +1,84 @@
+<UserControl x:Class="PakLudo.Views.HowToPlayScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="850">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Background="#F8FAFC">
+        <StackPanel HorizontalAlignment="Center" MaxWidth="720" Margin="24,32,24,32">
+            
+            <!-- Header -->
+            <TextBlock Text="📜 How to Play Pak Ludo" FontSize="30" FontWeight="Bold" Foreground="#01411C"
+                       HorizontalAlignment="Center" Margin="0,0,0,8" />
+            <TextBlock Text="Master the standard rules and strategies of Pak Ludo" FontSize="15" Foreground="#64748B"
+                       HorizontalAlignment="Center" Margin="0,0,0,24" />
+
+            <!-- Rule 1: Starting the Game -->
+            <Border Background="White" CornerRadius="14" Padding="20" Margin="0,0,0,16" BorderBrush="#E2E8F0" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="1. Unlocking Your Tokens 🔓" FontSize="17" FontWeight="Bold" Foreground="#01411C" Margin="0,0,0,6" />
+                    <TextBlock Text="All 4 tokens begin locked inside your base yard. To release a token onto the track starting square, you must roll a 6 on your turn."
+                               FontSize="14" Foreground="#334155" TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <!-- Rule 2: Movement & Track Navigation -->
+            <Border Background="White" CornerRadius="14" Padding="20" Margin="0,0,0,16" BorderBrush="#E2E8F0" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="2. Track Navigation 🏃" FontSize="17" FontWeight="Bold" Foreground="#01411C" Margin="0,0,0,6" />
+                    <TextBlock Text="Tokens travel clockwise around the 52-tile circuit track according to the number rolled on the dice. Once completing a full lap, tokens turn into their colored home column."
+                               FontSize="14" Foreground="#334155" TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <!-- Rule 3: Safe Star Spots -->
+            <Border Background="White" CornerRadius="14" Padding="20" Margin="0,0,0,16" BorderBrush="#E2E8F0" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="3. Safe Star Spots (8 Spots) ⭐" FontSize="17" FontWeight="Bold" Foreground="#01411C" Margin="0,0,0,6" />
+                    <TextBlock Text="Tiles marked with a Star (★) and the starting tiles are 100% Safe Zones. Tokens resting on safe stars cannot be captured by any opponent. Multiple tokens can safely share these squares."
+                               FontSize="14" Foreground="#334155" TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <!-- Rule 4: Knockouts & Capturing -->
+            <Border Background="White" CornerRadius="14" Padding="20" Margin="0,0,0,16" BorderBrush="#E2E8F0" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="4. Capturing Opponent Tokens ⚔️" FontSize="17" FontWeight="Bold" Foreground="#01411C" Margin="0,0,0,6" />
+                    <TextBlock Text="Landing on a non-safe square occupied by an opponent's token captures it, immediately sending it back to their base yard. Successfully capturing a token rewards you with a Bonus Turn!"
+                               FontSize="14" Foreground="#334155" TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <!-- Rule 5: Rolling a Six & Bonus Turns -->
+            <Border Background="White" CornerRadius="14" Padding="20" Margin="0,0,0,16" BorderBrush="#E2E8F0" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="5. Sixes &amp; Bonus Turns 🎲" FontSize="17" FontWeight="Bold" Foreground="#01411C" Margin="0,0,0,6" />
+                    <TextBlock Text="Rolling a 6 grants an immediate extra roll. However, rolling three consecutive sixes (6-6-6) incurs a penalty: your turn ends immediately and passes to the next player."
+                               FontSize="14" Foreground="#334155" TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <!-- Rule 6: Reaching Home & Winning -->
+            <Border Background="White" CornerRadius="14" Padding="20" Margin="0,0,0,24" BorderBrush="#E2E8F0" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="6. Winning the Game 🏆" FontSize="17" FontWeight="Bold" Foreground="#01411C" Margin="0,0,0,6" />
+                    <TextBlock Text="A token must land on the center Home triangle with an exact dice roll. The first player to bring all 4 tokens into Home wins 1st Place!"
+                               FontSize="14" Foreground="#334155" TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <!-- Back Button -->
+            <Button Click="OnBackClicked" Content="🏠 Back to Main Menu" FontSize="16" FontWeight="Bold"
+                    Background="#01411C" Foreground="White" Padding="28,12" HorizontalAlignment="Center"
+                    BorderThickness="0" Cursor="Hand">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
